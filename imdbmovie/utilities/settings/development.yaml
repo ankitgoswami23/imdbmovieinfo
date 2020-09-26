@@ -2,9 +2,6 @@
 debug:
   DEBUG: True
 
-env:
-  ENV: development
-
 running_host:
   host: 127.0.0.1
   port: 3012
