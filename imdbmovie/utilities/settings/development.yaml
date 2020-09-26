@@ -18,3 +18,14 @@ hosts:
 
 secrets:
   SECRET_KEY: y$hn=m&mv-_#%8&vlx(@+-!p+ta#%-7pt2^#9+q+r^!e0449tc
+
+imdb_url:
+  IMDB_URL: https://www.imdb.com/
+
+database:
+  ENGINE: mysql
+  NAME: imdbmovie
+  USER: root
+  PASSWORD: root
+  HOST: localhost
+  PORT: 3306
