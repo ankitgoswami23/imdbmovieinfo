@@ -1,0 +1,40 @@
+
+debug:
+  DEBUG: True
+
+running_host:
+  host: 0.0.0.0
+  port: 5000
+
+installed_apps:
+  - imdbmovie.movieinfo
+
+hosts:
+  ALLOWED_HOSTS:
+    - 0.0.0.0
+    - localhost
+    - 127.0.0.1
+
+#Authorization configuration
+secrets:
+  SECRET_KEY: as41-#$d8asdf+sd4f84sf516ea23eded
+
+jwt_config:
+  TOKEN_IDENTITY_PARAM: username
+  CREDENTIAL:
+    username: user@name
+    password: pass@word
+  TOKEN_EXPIRY: False
+
+imdb_url:
+  IMDB_URL: https://www.imdb.com/
+
+#Database Configuration
+database:
+  ENGINE: mysql
+  NAME: imdbmovie
+  USER: root
+  PASSWORD: root
+  HOST: localhost
+  PORT: 3306
+  SQLALCHEMY_TRACK_MODIFICATIONS: False
