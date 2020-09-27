@@ -3,10 +3,14 @@ from flask import Flask
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager
+from celery import Celery
 
 # App Initialization
 app = Flask(__name__)
 app.config.from_object('config')
+
+celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
+celery.conf.update(app.config)
 
 # Initializing REST API Object
 api = Api(app)

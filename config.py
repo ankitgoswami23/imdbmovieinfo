@@ -34,4 +34,8 @@ SQLALCHEMY_TRACK_MODIFICATIONS = site_config.get('database', {}).get('SQLALCHEMY
 # Application definition
 INSTALLED_APPS = site_config.get('installed_apps', [])
 
+# Celery Configuration
+CELERY_BROKER_URL = site_config.get('celery', {}).get('CELERY_BROKER_URL', 'redis://127.0.0.1:6379')
+CELERY_RESULT_BACKEND = site_config.get('celery', {}).get('CELERY_RESULT_BACKEND', 'redis://127.0.0.1:6379')
+
 THIS_URL = str(SERVICE_HOST) + ":" + str(SERVICE_PORT)

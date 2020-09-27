@@ -56,7 +56,7 @@ class Authorization:
         return access_token
 
 
-class ObjToDict:
+class Utilities:
 
     @staticmethod
     def object_as_dict(obj):
@@ -90,3 +90,25 @@ class ObjToDict:
         except Exception as e:
             print(e)
         return data
+
+    @staticmethod
+    def get_duration(dur_time):
+        """
+        Parse Duration Time from the server and return minutes
+        :param dur_time: Duration String which get from server
+        :return: minutes
+        """
+        duration = [0]
+        try:
+            duration = dur_time.replace('PT', '').replace('M', '').split('H')
+            if len(duration) > 1:
+                hour = 0 if duration[0] in ['', None] else int(duration[0])
+                minute = 0 if duration[1] in ['', None] else int(duration[1])
+                duration = (hour * 60) + minute
+            elif 'M' in dur_time and 'H' not in dur_time:
+                duration = duration[0]
+            elif 'H' in dur_time and 'M' not in dur_time:
+                duration = duration[0] * 60
+        except Exception as e:
+            print(e)
+        return duration

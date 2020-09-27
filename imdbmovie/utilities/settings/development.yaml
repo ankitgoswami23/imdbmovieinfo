@@ -32,3 +32,8 @@ database:
   HOST: localhost
   PORT: 3306
   SQLALCHEMY_TRACK_MODIFICATIONS: False
+
+#celery configuration
+celery:
+  CELERY_BROKER_URL: redis://127.0.0.1:6379
+  CELERY_RESULT_BACKEND: redis://127.0.0.1:6379

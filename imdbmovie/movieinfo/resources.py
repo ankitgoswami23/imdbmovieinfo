@@ -1,7 +1,7 @@
 from flask_restful import Resource
 from flask import request
 from flask_jwt_extended import jwt_required
-from imdbmovie.movieinfo.business_logic.update_db import UpdateMovieDB
+from imdbmovie.movieinfo.business_logic.update_db import UpdateMovieDB, test_print
 from imdbmovie.movieinfo.business_logic.FetchMovie import GetAllMovies, MovieSearch
 from imdbmovie.movieinfo.business_logic.common_utilities import Authorization
 
@@ -26,7 +26,11 @@ class UpdateMovieInDb(Resource):
         Request to update the database from the server
         :return: true or false
         """
-        return UpdateMovieDB().update_movie_db()
+        data = UpdateMovieDB().update_movie_db.apply_async()
+
+        print("aaaaa:", data)
+
+        return "Success"
 
 
 class GetMovieList(Resource):

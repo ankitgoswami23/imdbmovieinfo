@@ -1,7 +1,7 @@
 from imdbmovie import db
 from sqlalchemy import desc
 from imdbmovie.movieinfo.dbmodel.ModelMovieInfo import MovieInfo
-from imdbmovie.movieinfo.business_logic.common_utilities import ObjToDict
+from imdbmovie.movieinfo.business_logic.common_utilities import Utilities
 
 
 class GetAllMovies:
@@ -17,7 +17,7 @@ class GetAllMovies:
         try:
             data = self.get_movie(order=order, descending=descending)
             if data:
-                movie_list = ObjToDict.object_as_dict(obj=data)
+                movie_list = Utilities.object_as_dict(obj=data)
         except Exception as e:
             print(e)
         if movie_list:
@@ -68,7 +68,7 @@ class MovieSearch:
             data = db.session.query(MovieInfo).filter(MovieInfo.movie_name.contains(string) |
                                                       MovieInfo.movie_desc.contains(string)).all()
             if data:
-                movie_list = ObjToDict.object_as_dict(obj=data)
+                movie_list = Utilities.object_as_dict(obj=data)
         except Exception as e:
             print(e)
 
