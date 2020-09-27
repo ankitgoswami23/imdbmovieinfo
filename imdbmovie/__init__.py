@@ -1,7 +1,6 @@
 import importlib
 from flask import Flask
 from flask_restful import Api
-from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager
 
@@ -15,9 +14,6 @@ api = Api(app)
 db = SQLAlchemy(app, session_options={})
 
 jwt = JWTManager(app)
-
-# It's for cross platform communication
-CORS(app, resources={r"/" + app.config['THIS_URL']: {"origins": "*"}})
 
 for installed_app in app.config.get('INSTALLED_APPS', []):
     try:
