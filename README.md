@@ -17,7 +17,7 @@ python app.py
 
 ###Update Database from IMDB Server:
 - /update_movie_db - (get request)
-    - Note: It take 10 to 15 min to update the database
+    - Note: It will take 10 to 15 min to update the database
 ###Update Database from IMDB Server:
 - /get_movie
     - to get all Movie info
