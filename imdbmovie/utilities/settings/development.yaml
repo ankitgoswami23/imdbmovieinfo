@@ -16,8 +16,16 @@ hosts:
     - localhost
     - 127.0.0.1
 
+#Authorization configuration
 secrets:
-  SECRET_KEY: y$hn=m&mv-_#%8&vlx(@+-!p+ta#%-7pt2^#9+q+r^!e0449tc
+  SECRET_KEY: as41-#$d8asdf+sd4f84sf516ea23eded
+
+jwt_config:
+  TOKEN_IDENTITY_PARAM: username
+  CREDENTIAL:
+    username: Digiqt
+    password: pass@word
+  TOKEN_EXPIRY: False
 
 imdb_url:
   IMDB_URL: https://www.imdb.com/

@@ -9,6 +9,7 @@ BASE_DIR = dirname(dirname(abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = site_config.get('secrets', {}).get('SECRET_KEY', '')
+JWT_CONFIG = site_config.get('jwt_config', {})
 
 # imdb url
 IMDBURL = site_config.get('imdb_url', {}).get('IMDB_URL', 'https://www.imdb.com/')

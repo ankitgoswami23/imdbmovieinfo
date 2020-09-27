@@ -1,7 +1,18 @@
 from flask_restful import Resource
-from flask import request, jsonify
+from flask import request
+from flask_jwt_extended import jwt_required
 from imdbmovie.movieinfo.business_logic.update_db import UpdateMovieDB
 from imdbmovie.movieinfo.business_logic.FetchMovie import GetAllMovies, MovieSearch
+from imdbmovie.movieinfo.business_logic.common_utilities import Authoraization
+
+
+class GetAuthToken(Resource):
+    def __init__(self):
+        pass
+
+    def post(self):
+        data = request.get_json(force=True)
+        return Authoraization().validate_credentials(data=data)
 
 
 class UpdateMovieInDb(Resource):
@@ -10,6 +21,7 @@ class UpdateMovieInDb(Resource):
         pass
 
     @staticmethod
+    @jwt_required
     def get():
         return UpdateMovieDB().update_movie_db()
 
@@ -19,6 +31,7 @@ class GetMovieList(Resource):
         pass
 
     @staticmethod
+    @jwt_required
     def get():
         response = None
         try:
@@ -35,6 +48,7 @@ class SearchMovie(Resource):
         pass
 
     @staticmethod
+    @jwt_required
     def get():
         response = None
         data = request.args.get('string', None)

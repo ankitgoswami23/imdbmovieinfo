@@ -3,6 +3,7 @@ from flask import Flask
 from flask_restful import Api
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
+from flask_jwt_extended import JWTManager
 
 # App Initialization
 app = Flask(__name__)
@@ -12,6 +13,8 @@ app.config.from_object('config')
 api = Api(app)
 
 db = SQLAlchemy(app, session_options={})
+
+jwt = JWTManager(app)
 
 # It's for cross platform communication
 CORS(app, resources={r"/" + app.config['THIS_URL']: {"origins": "*"}})
