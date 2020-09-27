@@ -1,5 +1,4 @@
 from yaml import safe_load
-from collections import namedtuple
 from os.path import join, dirname, abspath
 
 
@@ -8,7 +7,7 @@ class SiteConfig:
     Manage configurations as per the environment
     """
 
-    def __init__(self, config_file='default.yaml'):
+    def __init__(self, config_file='development.yaml'):
         self.config = None
         self.config_file = config_file
 
@@ -24,21 +23,3 @@ class SiteConfig:
         :return:
         """
         return self.config
-
-    def get_secrets(self):
-        """
-        Get all secrets
-        :return:
-        """
-        secrets = namedtuple('secrets', 'secrets')
-        return secrets(self.config['secrets'])
-
-    def get_secret_key(self):
-        """
-        Get apps secret key
-        :return:
-        """
-        try:
-            return self.config['secrets']['SECRET_KEY']
-        except (ValueError, IndexError, TypeError):
-            raise Exception("Invalud server configuration file ({}).".format(self.config_file))

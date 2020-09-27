@@ -3,9 +3,8 @@ debug:
   DEBUG: True
 
 running_host:
-  host: 127.0.0.1
-  port: 3012
-  threaded: False
+  host: 0.0.0.0
+  port: 5000
 
 installed_apps:
   - imdbmovie.movieinfo
@@ -23,13 +22,14 @@ secrets:
 jwt_config:
   TOKEN_IDENTITY_PARAM: username
   CREDENTIAL:
-    username: Digiqt
+    username: user@name
     password: pass@word
   TOKEN_EXPIRY: False
 
 imdb_url:
   IMDB_URL: https://www.imdb.com/
 
+#Database Configuration
 database:
   ENGINE: mysql
   NAME: imdbmovie
@@ -37,3 +37,4 @@ database:
   PASSWORD: root
   HOST: localhost
   PORT: 3306
+  SQLALCHEMY_TRACK_MODIFICATIONS: False

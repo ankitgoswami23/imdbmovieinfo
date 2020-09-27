@@ -15,6 +15,7 @@ db = SQLAlchemy(app, session_options={})
 
 jwt = JWTManager(app)
 
+# Initializing installed app
 for installed_app in app.config.get('INSTALLED_APPS', []):
     try:
         importlib.__import__(installed_app)

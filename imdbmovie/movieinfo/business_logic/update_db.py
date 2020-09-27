@@ -6,10 +6,12 @@ from json import loads, dumps
 
 
 class UpdateMovieDB:
-    def __init__(self):
-        pass
 
     def update_movie_db(self):
+        """
+        Update Database from IMDB Server
+        :return: True or False
+        """
         status = "False"
         try:
             db.session.query(MovieInfo).delete()
@@ -33,18 +35,20 @@ class UpdateMovieDB:
                 db.session.add(obj_scheduler_data)
                 query = db.session.commit()
                 if query is None:
-                    print('------------------------------ Finished---------------------------------------')
-                else:
-                    print('---------------------------------Error----------------------------------------')
+                    status = "True"
                 db.session.close()
-                status = "True"
         except Exception as e:
             print(e)
 
-        return status
+        return status, 200
 
     @staticmethod
     def get_duration(dur_time):
+        """
+        Parse Duration Time from the server and return minutes
+        :param dur_time: Duration String which get from server
+        :return: minutes
+        """
         duration = [0]
         try:
             duration = dur_time.replace('PT', '').replace('M', '').split('H')
