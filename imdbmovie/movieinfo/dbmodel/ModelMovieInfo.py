@@ -19,15 +19,3 @@ class MovieInfo(db.Model):
         self.movie_release = movie_release
         self.movie_duration = movie_duration
         self.movie_desc = movie_desc
-
-    # def __repr__(self):
-    #     data = {'id': self.id,
-    #             'movie_name': self.movie_name,
-    #             'movie_rating': self.movie_rating,
-    #             'movie_release': self.movie_release,
-    #             'movie_duration': self.movie_duration,
-    #             'movie_desc': self.movie_desc
-    #             }
-    #     data = dumps(data)
-    #
-    #     return data
