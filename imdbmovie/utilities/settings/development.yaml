@@ -1,6 +1,6 @@
 
 debug:
-  DEBUG: True
+  DEBUG: False
 
 running_host:
   host: 0.0.0.0
@@ -11,7 +11,7 @@ installed_apps:
 
 #Authorization configuration
 secrets:
-  SECRET_KEY: as41-#$d8asdf+sd4f84sf516ea23eded
+  SECRET_KEY: balfdicnhvby324ib262$ky
 
 jwt_config:
   TOKEN_IDENTITY_PARAM: username
