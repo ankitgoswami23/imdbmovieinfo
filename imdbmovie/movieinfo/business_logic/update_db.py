@@ -33,10 +33,10 @@ class UpdateMovieDB:
                 }
                 obj_scheduler_data = MovieInfo(**data)
                 db.session.add(obj_scheduler_data)
-                query = db.session.commit()
-                if query is None:
-                    status = "True"
-                db.session.close()
+            query = db.session.commit()
+            if query is None:
+                status = "True"
+            db.session.close()
         except Exception as e:
             print(e)
 
