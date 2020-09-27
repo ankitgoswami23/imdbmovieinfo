@@ -9,12 +9,6 @@ running_host:
 installed_apps:
   - imdbmovie.movieinfo
 
-hosts:
-  ALLOWED_HOSTS:
-    - 0.0.0.0
-    - localhost
-    - 127.0.0.1
-
 #Authorization configuration
 secrets:
   SECRET_KEY: as41-#$d8asdf+sd4f84sf516ea23eded
