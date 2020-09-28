@@ -45,10 +45,9 @@ class Authorization:
         :return: access token if generated else empty string
         """
         access_token = ''
-        if expires_delta is not False:
-            expires_delta = timedelta(minutes=expires_delta)
-
         try:
+            if expires_delta is not False:
+                expires_delta = timedelta(minutes=expires_delta)
             access_token = create_access_token(identity=identity_param_val, expires_delta=expires_delta)
         except Exception as e:
             print(e)
