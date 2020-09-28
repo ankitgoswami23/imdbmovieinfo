@@ -7,7 +7,7 @@ pip install -r requirements.txt
 ````
 Setup Database configuration in development.yaml file
 
-run db query from imdbmovie.sql into mysql
+run databse query from imdbmovie.sql into mysql
 
 run project with
 ````
@@ -15,8 +15,8 @@ python app.py
 ````
 ##API Info
 
-- All API Call after authentication
-- Auth token send as a Bearer Token
+- All API Call after authentication.
+- Auth token send as a Bearer Token.
 
 ###Update Database from IMDB Server:
 - /update_movie_db - (get request)
