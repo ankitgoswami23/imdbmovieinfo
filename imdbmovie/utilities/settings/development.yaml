@@ -11,7 +11,7 @@ installed_apps:
 
 #Authorization configuration
 secrets:
-  SECRET_KEY: balfdicnhvby324ib262$ky
+  SECRET_KEY: imdbtestingmovies
 
 jwt_config:
   TOKEN_IDENTITY_PARAM: username
