@@ -3,7 +3,7 @@ debug:
   DEBUG: False
 
 running_host:
-  host: 0.0.0.0
+  host: 127.0.0.1
   port: 5000
 
 installed_apps:

@@ -17,7 +17,9 @@ class GetAllMovies:
         try:
             data = self.get_movie(order=order, descending=descending)
             if data:
-                movie_list = ObjToDict.object_as_dict(obj=data)
+                movie_list = list(map(lambda x: ObjToDict.object_as_dict(x), data)) if isinstance(data, list) else \
+                    ObjToDict.object_as_dict(data)
+
         except Exception as e:
             print(e)
         if movie_list:
@@ -68,7 +70,8 @@ class MovieSearch:
             data = db.session.query(MovieInfo).filter(MovieInfo.movie_name.contains(string) |
                                                       MovieInfo.movie_desc.contains(string)).all()
             if data:
-                movie_list = ObjToDict.object_as_dict(obj=data)
+                movie_list = list(map(lambda x: ObjToDict.object_as_dict(x), data)) if isinstance(data, list) else \
+                    ObjToDict.object_as_dict(data)
         except Exception as e:
             print(e)
 
