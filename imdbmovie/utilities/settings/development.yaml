@@ -19,6 +19,8 @@ jwt_config:
     username: user@name
     password: pass@word
   TOKEN_EXPIRY: False
+exception:
+  PROPAGATE_EXCEPTIONS: True
 
 imdb_url:
   IMDB_URL: https://www.imdb.com/

@@ -9,7 +9,8 @@ BASE_DIR = dirname(dirname(abspath(__file__)))
 
 # JWT Authentication Configuration
 SECRET_KEY = site_config.get('secrets', {}).get('SECRET_KEY', '')
-JWT_CONFIG = site_config.get('jwt_config', {})
+JWT_CONFIG = site_config.get('exception', {}).get('PROPAGATE_EXCEPTIONS', True)
+PROPAGATE_EXCEPTIONS = True
 
 # imdb url
 IMDBURL = site_config.get('imdb_url', {}).get('IMDB_URL', 'https://www.imdb.com/')
